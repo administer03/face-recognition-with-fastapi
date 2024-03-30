@@ -6,9 +6,16 @@ from PIL import Image
 
 # Function to send a frame to the server
 def send_frame_to_server(frame) -> dict:
-    url = "http://0.0.0.0:8030/detect_faces/"
-    _, img_encoded = cv2.imencode('.jpg', frame)
-    response = requests.post(url, files={'file': ("frame.jpg", img_encoded.tobytes())})
+    try: # In case of send on HTTPS
+        url = "https://0.0.0.0:8030/detect_faces/"
+        _, img_encoded = cv2.imencode('.jpg', frame)
+        response = requests.post(url, files={'file': ("frame.jpg", img_encoded.tobytes())}, verify=False)
+
+    except: # In case of send on HTTP
+        url = "http://0.0.0.0:8030/detect_faces/"
+        _, img_encoded = cv2.imencode('.jpg', frame)
+        response = requests.post(url, files={'file': ("frame.jpg", img_encoded.tobytes())})
+        
     # Return the response
     return response.json()
 

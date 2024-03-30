@@ -14,6 +14,13 @@ pip install -r requirements.txt
 python api.py
 ```
 
+## Config HTTPS
+In this step, we will generate a self-signed certificate for the HTTPS connection.
+```
+mkcert localhost 127.0.0.1 0.0.0.0
+```
+Then, move the generated files, name "localhost-key.pem" and "localhost.pem", to the "certs" folder.
+
 ## Run the client script
 ```
 streamlit run client.py

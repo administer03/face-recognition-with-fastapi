@@ -34,7 +34,17 @@ async def detect_faces(file: UploadFile = File(...)) -> dict:
 
 if __name__ == "__main__":
     # Start the server    
-    uvicorn.run(app, host="localhost", port=8030, 
-                log_level="info", loop="asyncio",)
-                # ssl_keyfile="./ssl/server.key", ssl_certfile="./ssl/server.crt")
-                # ssl_keyfile="./ssl/key.pem", ssl_certfile="./ssl/cert.pem")
+    try: # In case of send on HTTPS
+        uvicorn.run(app, 
+                    host="0.0.0.0", 
+                    port=8030, 
+                    log_level="info", 
+                    loop="asyncio",
+                    ssl_keyfile="./certs/localhost-key.pem",
+                    ssl_certfile="./certs/localhost.pem")
+    except : # In case of send on HTTP
+        uvicorn.run(app, 
+                    host="0.0.0.0", 
+                    port=8030, 
+                    log_level="info", 
+                    loop="asyncio")
