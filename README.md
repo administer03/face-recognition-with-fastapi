@@ -18,7 +18,7 @@ mkcert localhost 127.0.0.1 0.0.0.0
 Then, move the generated files, name "localhost-key.pem" and "localhost.pem", to the "certs" folder.
 
 > [!Note]
-> In this case, the certificate is generated for the localhost only.
+> In this testing, the certificate is generated for the localhost only.
 
 ## Run the FastAPI server
 ```
