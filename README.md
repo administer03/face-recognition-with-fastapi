@@ -5,6 +5,9 @@ This project focuses on utilizing the OpenCV library for face detection in a vid
 
 ## Installation
 
+> [!Note]
+> Here, Python 3.9.12 is required.
+
 ```
 pip install -r requirements.txt
 ```
