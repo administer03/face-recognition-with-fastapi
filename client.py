@@ -3,6 +3,8 @@ import cv2
 import numpy as np
 import requests
 from PIL import Image
+import warnings
+warnings.filterwarnings("ignore")
 
 # Function to send a frame to the server
 def send_frame_to_server(frame) -> dict:
