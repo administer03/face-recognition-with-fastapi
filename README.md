@@ -9,17 +9,17 @@ This project focuses on utilizing the OpenCV library for face detection in a vid
 pip install -r requirements.txt
 ```
 
-## Run the FastAPI server
-```
-python api.py
-```
-
 ## Config HTTPS
 In this step, we will generate a self-signed certificate for the HTTPS connection.
 ```
 mkcert localhost 127.0.0.1 0.0.0.0
 ```
 Then, move the generated files, name "localhost-key.pem" and "localhost.pem", to the "certs" folder.
+
+## Run the FastAPI server
+```
+python api.py
+```
 
 ## Run the client script
 ```
