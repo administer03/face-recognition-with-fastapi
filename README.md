@@ -12,6 +12,12 @@ This project focuses on utilizing the OpenCV library for face detection in a vid
 pip install -r requirements.txt
 ```
 
+> [!Warning]
+> If you encounter an error "ImportError: libGL.so.1: cannot open shared object file: No such file or directory", you can install the following package to resolve the issue.
+```
+sudo apt-get install libgl1 
+```
+
 ## Config HTTPS
 In this step, we will generate a self-signed certificate for the HTTPS connection.
 Here, I decided to use the mkcert tool to generate the certificate.
